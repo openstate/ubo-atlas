@@ -1,0 +1,17 @@
+import os
+
+# On a new deployment (whether production or development) make
+# a copy of this file called 'config.py' and change 'False' for
+# SECRET_KEY to a newly generated string using these python commands:
+# $ import os
+# $ os.urandom(32)
+
+basedir = os.path.abspath(os.path.dirname(__file__))
+
+
+class Config(object):
+    SECRET_KEY = False
+    SERVER_NAME = 'uboatlas.eu'
+    PREFERRED_URL_SCHEME = 'https'
+    FORCE_HOST_FOR_REDIRECTS = 'uboatlas.eu'
+    USE_SESSION_FOR_NEXT = True

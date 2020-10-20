@@ -1,0 +1,19 @@
+version: "3.1"
+services:
+  nginx:
+    volumes:
+      - ./nginx-dev/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx-dev/conf.d/:/etc/nginx/conf.d/
+    restart: "no"
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile-app-dev
+    restart: "no"
+  node:
+    restart: "no"
+networks:
+  internal:
+  nginx-load-balancer:
+    external:
+      name: docker_nginx-load-balancer

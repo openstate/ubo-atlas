@@ -1,0 +1,100 @@
+body {
+  color: #002346 !important;
+  background-color: #FFF0E6 !important;
+  font-family: 'Mulish', sans-serif !important;
+  font-size: 13px !important;
+}
+
+.navbar-brand {
+  font-weight: 800;
+  color: #F1F1F1 !important;
+}
+
+.nav-link {
+  color: #F1F1F1 !important;
+  font-size: 20px !important;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+footer .osf {
+    height: 80px !important;
+    text-align: center !important;
+    background-color: #204C72 !important;
+}
+
+footer .lower-footer {
+    height: 50px !important;
+    background-color: #191847 !important;
+}
+
+.legend-color {
+  display: inline-block;
+  border: 1px #002346 solid !important;
+  border-radius: 4px !important;
+  width: 40px !important;
+  height: 9px !important;
+}
+
+.accordion {
+  padding-left: 0 !important;
+}
+
+.accordion .card:first-child {
+  border-top-width: 0 !important;
+}
+
+.card {
+  border-start-start-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  border-block-start-color: #204C72 !important;
+}
+
+.card-header {
+  background-color: #CCDFEB !important;
+}
+
+.card-body {
+  background-color: #FFFFFF !important;
+}
+
+.collapse-button {
+  font-weight: 800 !important;
+  font-size: 18px !important;
+  color: #002346 !important;
+}
+
+.columns {
+  width: 100%;
+  float: left;
+}
+
+.svg-container .main-svg path {
+  stroke: #FFF0E6 !important;
+  stroke-width: 2px !important;
+  vertical-align: top;
+}
+
+.svg-container .main-svg:first-child {
+  background-color: #FFF0E6 !important;
+}
+
+@media (max-width: 719px) {
+  h1 {
+    font-size: 26px;
+  }
+}
+
+@media (min-width: 721px) {
+  .four.columns {
+    width: 33.3%;
+  }
+}
+
+/* https://community.plot.ly/t/modebar-appears-on-top-of-dropdown-list/6398 */
+.Select-menu-outer {
+  z-index: 1002;
+}

@@ -9,7 +9,7 @@ Website showing how transparant the implementations of the Ultimate Beneficial O
 ## Add data
 Export the results from the spreadsheet to a CSV and remove all rows starting 'Date of info' and lower. Save the file as `data.csv` in the `data` folder.
 
-If a new column with results is added to the data then you need to add information about it in the `ubo_info` dictionary in `app/routes.py`. If a column is removed from the results, then you need to remove the information from about it from `ubo_info` as well.
+If a new column with results is added to the data then you need to add information about it in the `ubo_info` dictionary in `app/routes.py`. If a column is removed from the results, then you need to remove the information from about it from `ubo_info` as well. Also if the actual terms used for the results (i.e., 'yes', 'no', 'unknown', etc.) are changed (this includes capitalization!), then these need to be matched in `ubo_info` as well.
 
 
 ## Run

@@ -21,16 +21,6 @@ services:
     networks:
       - internal
     restart: always
-  node:
-    image: node:12
-    working_dir: /opt/ubo/assets
-    volumes:
-      - ../app:/opt/ubo
-    networks:
-      - internal
-    # Use this to keep the container running
-    tty: true
-    restart: always
 networks:
   internal:
   nginx-load-balancer:

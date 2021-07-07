@@ -21,10 +21,7 @@ ubo_info = [
     {
         'title': 'Status Implementation',
         'status': {
-            '': 0,
-            'unknown': 0,
             'implemented': 1,
-            'partly implemented': 3,
             'not implemented': 4
         },
         'description': 'Description of this category',
@@ -32,82 +29,47 @@ ubo_info = [
     {
         'title': 'All UBO info accessible for',
         'status': {
-            '': 0,
-            'unknown': 0,
+            'N/A': 0,
             'public': 1,
             'general public with legitimate interest': 2,
-            'only residents/citizens of certain memberstates': 3,
-            'Only to public authorities/obliged entities': 4
+            'public only nationals and EU citizens': 3,
+            'not public': 4
         },
         'description': 'Description of this category',
     },
     {
         'title': 'Paywall',
         'status': {
-            '': 0,
-            'unknown': 0,
+            'N/A': 0,
             'no': 1,
             'yes': 4
         },
         'description': 'Description of this category',
     },
     {
-        'title': 'Registration required',
+        'title': 'Registration to get access required',
         'status': {
-            '': 0,
-            'unknown': 0,
+            'N/A': 0,
             'no': 1,
             'yes': 4
         },
         'description': 'Description of this category',
     },
     {
-        'title': 'Search by name/entity',
+        'title': 'Available as open data',
         'status': {
-            '': 0,
-            'unknown': 0,
-            'entity and name': 1,
-            'only by entity': 3
+            'N/A': 0,
+            'no': 1,
+            'yes': 4
         },
         'description': 'Description of this category',
     },
     {
-        'title': 'Treshhold for registration',
+        'title': 'Search by person/entity',
         'status': {
-            '': 0,
-            'unknown': 0,
-            'more than 25%': 1,
-            '25% or more': 3
-        },
-        'description': 'Description of this category',
-    },
-    {
-        'title': 'Registration obligation limited to entities established/controlled within territory',
-        'status': {
-            '': 0,
-            'unknown': 0,
-            'yes': 4,
-            'no': 1
-        },
-        'description': 'Description of this category',
-    },
-    {
-        'title': 'Shielding wall of info minors/and other excepcional cases',
-        'status': {
-            '': 0,
-            'unknown': 0,
-            'yes': 1,
-            'no': 4
-        },
-        'description': 'Description of this category',
-    },
-    {
-        'title': 'Minimum registration of 1 UBO',
-        'status': {
-            '': 0,
-            'unknown': 0,
-            'yes': 1,
-            'no': 4
+            'N/A': 0,
+            'entity and person': 1,
+            'legal entity': 3
         },
         'description': 'Description of this category',
     }

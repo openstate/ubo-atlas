@@ -12,7 +12,7 @@ dash_app = dash.Dash(__name__, server=app, url_base_pathname="/", external_style
 
 dash_app.config['suppress_callback_exceptions'] = True
 
-dash_app.title = 'UBO Atlas'
+dash_app.title = 'UBO Atlas - an overview of Ultimate Beneficial Ownership registers across the EU'
 
 dash_app.index_string = '''
 <!DOCTYPE html>

@@ -208,7 +208,32 @@ about_layout = html.Div(
     [
         html.Br(),
         html.H1('About UBO Atlas'),
-        html.P('Information about UBO Atlas.'),
+        html.P(
+            'Anonymous companies and other legal entities are vehicles that are frequently used by malicious individuals to commit financial crimes such as money laundering, cross-border corruption, environmental crimes and even human trafficking. The Panama Papers and LuxLeaks have proven this to be the case. And because of the anonymous character of these companies, the real individuals behind these entities are often not held accountable for their harmful and illegal actions.'
+        ),
+        html.P(
+            'To combat this, the European Union has taken significant steps to increase the transparency in company ownership with the 4th and 5h Anti Money Laundering Directive (AMLD). One of the instruments of the AMLD is enforcing member states to open up their beneficial ownership registers to the public. This recognizes the value of public oversight and scrutiny of who owns a company and who is pulling the strings. Not only to fight financial crime, but also to ensure public trust in the financial system and ensure that companies can easily find out who they are in business with.'
+        ),
+        html.P(
+            [
+                'Three years after the adoption of AMLD 5 and a year after the deadline for member states to install and open up the beneficial ownership registers, the UBO Atlas showcases the current state of play in the European Union. It showcases the specifics regarding the implementation and accessibility of beneficial ownership registers in EU member states. The UBO Atlas builds upon ',
+                html.A(
+                    'research executed by TaxJustice Europe and Transparency International',
+                    href='https://www.transparency.org/en/publications/access-denied-availability-accessibility-beneficial-ownership-registers-data-european-union'
+                ),
+                '. Over the course of the next couple of months more details about these beneficial ownerships will be added to the UBO Atlas.'
+            ]
+        ),
+        html.P(
+            [
+                'If information is incorrect or not up to date anymore - please contact ',
+                html.A(
+                    'jesse@openstate.eu',
+                    href='mailto:jesse@openstate.eu'
+                ),
+                ' with supporting evidence. This will be analysed and if sufficient proof is available the data presented in the UBO Atlas will be updated.'
+            ]
+        ),
         html.Br(),
     ],
     className="container"

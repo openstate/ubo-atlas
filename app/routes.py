@@ -19,15 +19,15 @@ from app import dash_app
 # 4 = rood
 ubo_info = [
     {
-        'title': 'Status Implementation',
+        'title': 'UBO implementation status',
         'status': {
             'implemented': 1,
             'not implemented': 4
         },
-        'description': 'Description of this category',
+        'description': 'As required by the 4th and 5th European Union’s Anti-Money Laundering Directive (AMLD) EU countries need to have established beneficial ownership registers by 10 January 2020. Which ones have done so, and which ones have failed to do so?',
     },
     {
-        'title': 'All UBO info accessible for',
+        'title': 'Who has access?',
         'status': {
             'N/A': 0,
             'public': 1,
@@ -35,7 +35,7 @@ ubo_info = [
             'public only nationals and EU citizens': 3,
             'not public': 4
         },
-        'description': 'Description of this category',
+        'description': 'EU countries are obliged to provide public access to beneficial ownership according to AMLD 5. Many countries do not comply. They restrict access to this data by closing off these registers to the public, only allowing public authorities to access them, only granting people access after disclosing their purpose of accessing beneficial ownership data or requiring e-identification or a national tax identification from users.',
     },
     {
         'title': 'Paywall',
@@ -44,34 +44,34 @@ ubo_info = [
             'no': 1,
             'yes': 4
         },
-        'description': 'Description of this category',
+        'description': 'A threshold in accessing beneficial ownership data is enforcing a paywall. To access a beneficial ownership extract of a company, most EU countries charge a fee. Prices of beneficial ownership extracts (legal entity or person) fall in the range of €2,50 to €27,- per extract.',
     },
     {
-        'title': 'Registration to get access required',
+        'title': 'Registration required',
         'status': {
             'N/A': 0,
             'no': 1,
             'yes': 4
         },
-        'description': 'Description of this category',
+        'description': 'To keep track of who uses beneficial ownership registers, EU countries have implemented complicated registration systems. People that want to access these registers in many cases need a national digital identification document. This limits foreign authorities or persons to access and use beneficial ownership data.',
     },
     {
-        'title': 'Available as open data',
+        'title': 'Structured data in machine readable format',
         'status': {
             'N/A': 0,
-            'no': 1,
-            'yes': 4
+            'yes': 1,
+            'no': 4
         },
-        'description': 'Description of this category',
+        'description': 'How data is published determines its (re)usability. Only two countries publish data in their registers as structured data and in machine readable formats (Denmark and Latvia). These countries allow (re)users to download the full dataset and access individual data through an A.P.I. Most EU countries still publish beneficial ownership extracts in PDF format instead of open data formats, limiting its reusability.',
     },
     {
-        'title': 'Search by person/entity',
+        'title': 'Search for persons/legal entities',
         'status': {
             'N/A': 0,
-            'entity and person': 1,
+            'legal entity and person': 1,
             'legal entity': 3
         },
-        'description': 'Description of this category',
+        'description': 'The usability of beneficial ownership registers is also determined by their functionalities, for example how data can be searched. In almost all EU countries users can only search by company name, and on a name of a beneficial owner. Only in five countries it is possible to search by company name and beneficial owner.',
     }
 ]
 

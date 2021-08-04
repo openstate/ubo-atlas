@@ -26,15 +26,10 @@ h1 {
   font-weight: bold;
 }
 
-footer .osf {
-    height: 80px !important;
-    text-align: center !important;
-    background-color: #204C72 !important;
-}
-
-footer .lower-footer {
-    height: 50px !important;
-    background-color: #191847 !important;
+footer .footer {
+    padding: 50px;
+    height: 300px !important;
+    background-color: #ccdfeb!important;
 }
 
 .legend-color {

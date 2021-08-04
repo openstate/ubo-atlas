@@ -1,4 +1,5 @@
 import csv
+import json
 import re
 
 import dash
@@ -133,20 +134,31 @@ def update_collapse_item(i):
     )
 
 
+# Data from https://geojson-maps.ash.ms/: medium resolution (50m),
+# Europe, deselecting countries we don't need and selecting Cyrpus
+with open('data/custom.geo-50m-europe41.json') as IN:
+    countries = json.load(IN)
+
+
 # Update the choropleth map
 def update_choropleth(current_result):
     results = [ubo_info[current_result]['status'][x[ubo_info[current_result]['title']]] for x in ubo_data]
     return {
-        'data': [go.Choropleth(
-            locations=[x['Country code'] for x in ubo_data],
-            z=results,
-            showscale=False,
-            # Only retrieve the colors that are actually used in a map,
-            # otherwise gradients of the colors might be used
-            colorscale=[color_map[x] for x in list(set(sorted(results)))],
-            text=['<b>{0}</b>: {1}'.format(x['Country'], x[ubo_info[current_result]['title']]) for x in ubo_data],
-            hoverinfo="text",
-        )],
+        'data': [
+            go.Choropleth(
+                locationmode='geojson-id',
+                geojson=countries,
+                featureidkey='properties.iso_a3',
+                locations=[x['Country code'] for x in ubo_data],
+                z=results,
+                showscale=False,
+                # Only retrieve the colors that are actually used in a map,
+                # otherwise gradients of the colors might be used
+                colorscale=[color_map[x] for x in list(set(sorted(results)))],
+                text=['<b>{0}</b>: {1}'.format(x['Country'], x[ubo_info[current_result]['title']]) for x in ubo_data],
+                hoverinfo="text",
+            )
+        ],
         'layout': go.Layout(
             geo={
                 'scope': 'europe',

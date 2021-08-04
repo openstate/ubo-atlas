@@ -1,4 +1,4 @@
 Flask==1.1.2
 uWSGI==2.0.19.1
-dash==1.16.3
-dash-bootstrap-components==0.10.7
+dash==1.21.0
+dash-bootstrap-components==0.13

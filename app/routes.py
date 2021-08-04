@@ -89,13 +89,13 @@ color_map = {
 
 # Load the data containing the results of all categories and countries
 ubo_data = []
-with open('data/data.csv') as IN:
+with open('app/static/ubo_atlas_data.csv') as IN:
     ubo_data = list(csv.DictReader(IN))
 
 
 # Load the data containing the tooltips for results
 ubo_data_tooltips = []
-with open('data/data_tooltips.csv') as IN:
+with open('app/static/ubo_atlas_data_tooltips.csv') as IN:
     ubo_data_tooltips = list(csv.DictReader(IN))
 
 
@@ -287,6 +287,21 @@ about_layout = html.Div(
                 ' with supporting evidence. This will be analysed and if sufficient proof is available the data presented in the UBO Atlas will be updated.'
             ]
         ),
+        html.Br(),
+        html.H1('Data'),
+        html.P(
+            html.A(
+                'Main dataset (csv)',
+                href='/static/ubo_atlas_data.csv'
+            ),
+        ),
+        html.P(
+            html.A(
+                'Tooltip dataset (csv)',
+                href='/static/ubo_atlas_data_tooltips.csv'
+            ),
+        ),
+        html.Br(),
         html.Br(),
     ],
     className="container"

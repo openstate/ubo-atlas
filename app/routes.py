@@ -93,6 +93,12 @@ with open('data/data.csv') as IN:
     ubo_data = list(csv.DictReader(IN))
 
 
+# Load the data containing the tooltips for results
+ubo_data_tooltips = []
+with open('data/data_tooltips.csv') as IN:
+    ubo_data_tooltips = list(csv.DictReader(IN))
+
+
 def create_legend(i):
     return i
     ''.join([html.P(x) for x in ubo_info[i]['status'].keys()])
@@ -135,27 +141,43 @@ def update_collapse_item(i):
 
 
 # Data from https://geojson-maps.ash.ms/: medium resolution (50m),
-# Europe, deselecting countries we don't need and selecting Cyrpus
+# Europe, deselected countries we don't need and included Cyprus
 with open('data/custom.geo-50m-europe41.json') as IN:
     countries = json.load(IN)
 
 
 # Update the choropleth map
 def update_choropleth(current_result):
+    # Results value for each country, e.g. [1, 1, 4, 3, ...]
     results = [ubo_info[current_result]['status'][x[ubo_info[current_result]['title']]] for x in ubo_data]
     return {
         'data': [
             go.Choropleth(
+                # This specifies that we provide our own geojson
                 locationmode='geojson-id',
+                # Provide our own custom geojson
                 geojson=countries,
+                # Specify the key in the geojson containing the country
+                # ISO 3166-1 alpha-3 code
                 featureidkey='properties.iso_a3',
+                # ISO 3166-1 alpha-3 code of the countries we want to show,
+                # e.g., ['AUT', 'BEL', 'BGR', ...]
                 locations=[x['Country code'] for x in ubo_data],
                 z=results,
                 showscale=False,
                 # Only retrieve the colors that are actually used in a map,
                 # otherwise gradients of the colors might be used
                 colorscale=[color_map[x] for x in list(set(sorted(results)))],
-                text=['<b>{0}</b>: {1}'.format(x['Country'], x[ubo_info[current_result]['title']]) for x in ubo_data],
+                # Provide text for the tooltips
+                text=[
+                    '<b>{0}</b>: {1}<br>{2}'.format(
+                            x['Country'],
+                            # Result
+                            x[ubo_info[current_result]['title']],
+                            # Retrieve any extra tooltip info
+                            ubo_data_tooltips[idx][ubo_info[current_result]['title']]
+                        ) for idx, x in enumerate(ubo_data)
+                ],
                 hoverinfo="text",
             )
         ],

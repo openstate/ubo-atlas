@@ -223,7 +223,7 @@ dash_app.layout = html.Div(
         ),
 
         # The page content is added here
-        html.Div(id='page-content'),
+        html.Div(id='page-content', className="bg-orange"),
 
         # The page content is added here
         html.Footer(

@@ -5,7 +5,4 @@ logs/*
 
 data/*
 
-app/static/dist*
-app/assets/node_modules/*
-
 config.py

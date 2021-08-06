@@ -8,9 +8,6 @@ GIT_REPO = 'ubo-atlas'
 # Path of the directory
 DIR = '/home/projects/%s' % (GIT_REPO)
 
-# Container used to compile the assets
-NODE_CONTAINER = 'ubo_node_1'
-
 # Server name
 SERVER = 'Fluorine'
 
@@ -28,19 +25,6 @@ def deploy(c):
             GIT_REPO
         )
     )
-
-    # Compile assets
-    output = c.sudo(
-        'docker inspect --format="{{.State.Status}}" %s' % (NODE_CONTAINER)
-    )
-    if output.stdout.strip() != 'running':
-        raise Exit(
-            '\n*** ERROR: The %s container, used to compile the assets, is '
-            'not running. Please build/run/start the container.' % (
-                NODE_CONTAINER
-            )
-        )
-    c.sudo('docker exec %s gulp' % (NODE_CONTAINER))
 
     # Reload app
     c.run('bash -c "cd %s && touch uwsgi-touch-reload"' % (DIR))

@@ -323,7 +323,7 @@ def display_page(pathname):
             [
                 html.Div(
                     [
-                        html.Div('Click on one of the categories below, then scroll down to see the corresponding map with the results', className="d-md-none"),
+                        html.Div('Click on one of the categories below, then scroll down to see the corresponding map with the results', className="d-md-none bg-orange"),
 
                         # Category menu on the left
                         html.Div([update_collapse_item(x) for x in range(0, len(ubo_info))], className="accordion col-12 col-md-4"),
@@ -332,7 +332,7 @@ def display_page(pathname):
                         dcc.Graph(
                             id='choropleth',
                             config={'displayModeBar': False},
-                            className="col-12 col-md-8"
+                            className="col-12 col-md-8 bg-orange"
                         )
                     ],
                     className="row"

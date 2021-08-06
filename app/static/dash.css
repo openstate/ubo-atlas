@@ -1,8 +1,8 @@
 body {
   color: #002346 !important;
-  background-color: #FFF0E6 !important;
   font-family: 'Mulish', sans-serif !important;
   font-size: 22px !important;
+  background-color: #F0F5F9 !important;
 }
 
 .navbar-brand {
@@ -26,10 +26,14 @@ h1 {
   font-weight: bold;
 }
 
+.bg-orange {
+  background-color: #FFF0E6 !important;
+}
+
 .footer {
-    padding: 50px;
-    height: 250px !important;
-    background-color: #f0f5f9 !important;
+  padding: 50px;
+  height: 250px !important;
+  background-color: #F0F5F9 !important;
 }
 
 .legend-color {

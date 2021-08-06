@@ -199,7 +199,6 @@ def update_choropleth(current_result):
                 'oceancolor': '#FFF0E6',
             },
             showlegend=False,
-            height=900,
             margin=go.layout.Margin(l=0, r=0, t=0, b=0),
             font={'family': "'Montserrat', sans-serif"},
         )
@@ -239,6 +238,7 @@ dash_app.layout = html.Div(
                             children=[
                                 html.Img(
                                     src='/static/Open_State_Foundation_logo_tagline_en_transparent.svg',
+                                    className="img-fluid",
                                     width="500",
                                     alt="Open State Foundation logo with tagline 'open data, transparent society'"
                                 )
@@ -323,14 +323,16 @@ def display_page(pathname):
             [
                 html.Div(
                     [
+                        html.Div('Click on one of the categories below, then scroll down to see the corresponding map with the results', className="d-md-none"),
+
                         # Category menu on the left
-                        html.Div([update_collapse_item(x) for x in range(0, len(ubo_info))], className="accordion col-4"),
+                        html.Div([update_collapse_item(x) for x in range(0, len(ubo_info))], className="accordion col-12 col-md-4"),
 
                         # Choropleth
                         dcc.Graph(
                             id='choropleth',
                             config={'displayModeBar': False},
-                            className="col-8"
+                            className="col-12 col-md-8"
                         )
                     ],
                     className="row"

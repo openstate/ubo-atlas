@@ -26,10 +26,10 @@ h1 {
   font-weight: bold;
 }
 
-footer .footer {
+.footer {
     padding: 50px;
     height: 250px !important;
-    background-color: #ccdfeb!important;
+    background-color: #f0f5f9 !important;
 }
 
 .legend-color {
@@ -42,6 +42,7 @@ footer .footer {
 
 .accordion {
   padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
 .accordion .card:first-child {
@@ -84,6 +85,10 @@ footer .footer {
 }
 
 @media (max-width: 719px) {
+  body {
+    font-size: 14px !important;
+  }
+
   h1 {
     font-size: 26px;
   }
@@ -91,6 +96,11 @@ footer .footer {
   .navbar-brand:after {
     content: ' - an overview of Ultimate Beneficial Ownership registers across the EU';
     font-size: 12px;
+  }
+
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 

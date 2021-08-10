@@ -14,7 +14,7 @@ body {
 
 .navbar-brand:after {
   content: ' - an overview of Ultimate Beneficial Ownership registers across the EU';
-  font-size: 16px;
+  font-size: 20px;
 }
 
 .nav-link {
@@ -96,6 +96,10 @@ h1 {
 
   h1 {
     font-size: 26px;
+  }
+
+  .navbar-brand {
+    font-size: 23px !important;
   }
 
   .navbar-brand:after {

@@ -220,6 +220,7 @@ dash_app.layout = html.Div(
             brand_href="/",
             color="#204C72",
             dark=True,
+            fluid=True
         ),
 
         # The page content is added here

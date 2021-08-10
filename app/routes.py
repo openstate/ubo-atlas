@@ -28,6 +28,16 @@ ubo_info = [
         'description': 'As required by the 4th and 5th European Union’s Anti-Money Laundering Directive (AMLD) EU countries need to have established beneficial ownership registers by 10 January 2020. Which ones have done so, and which ones have failed to do so?',
     },
     {
+        'title': 'Data fields',
+        'status': {
+            'N/A': 0,
+            'all data': 1,
+            'most data': 2,
+            'some data': 3
+        },
+        'description': 'Not every country publishes all information in their B.O. register. Hover/click each country to see if they publish the name, month and year of birth, country of residence, nationality, nature of interest and extent of interest of each beneficial owner.',
+    },
+    {
         'title': 'Who has access?',
         'status': {
             'N/A': 0,
@@ -90,14 +100,35 @@ color_map = {
 # Load the data containing the results of all categories and countries
 ubo_data = []
 with open('app/static/ubo_atlas_data.csv') as IN:
-    ubo_data = list(csv.DictReader(IN))
+    ubo_data = [dict(x) for x in list(csv.DictReader(IN))]
 
 
 # Load the data containing the tooltips for results
 ubo_data_tooltips = []
 with open('app/static/ubo_atlas_data_tooltips.csv') as IN:
-    ubo_data_tooltips = list(csv.DictReader(IN))
+    ubo_data_tooltips = [dict(x) for x in list(csv.DictReader(IN))]
 
+# Load the data containing the results about data fields
+ubo_data_fields = []
+with open('app/static/ubo_atlas_data_fields.csv') as IN:
+    ubo_data_fields = list(csv.DictReader(IN))
+
+# Add the data from the data fields CSV to ubo_data and ubo_data_tooltips
+for row1 in ubo_data_fields:
+    for row2 in ubo_data:
+        if row1['Country'] == row2['Country']:
+            row2['Data fields'] = row1['Ranking']
+    for row2 in ubo_data_tooltips:
+        if row1['Country'] == row2['Country']:
+            row2['Data fields'] = (
+                f"Name: {row1['Name']}<br>"
+                f"Month and year of birth: {row1['Month and year of birth']}<br>"
+                f"Country of residence: {row1['Country of residence']}<br>"
+                f"Nationality: {row1['Nationality']}<br>"
+                f"Nature of interest: {row1['Nature of interest']}<br>"
+                f"Extent of interest: {row1['Extent of interest']}<br>"
+                f"Additional information: {row1['Additional information']}<br>"
+            )
 
 def create_legend(i):
     return i
@@ -294,6 +325,12 @@ about_layout = html.Div(
             html.A(
                 'Main dataset (csv)',
                 href='/static/ubo_atlas_data.csv'
+            ),
+        ),
+        html.P(
+            html.A(
+                'Data fields dataset (csv)',
+                href='/static/ubo_atlas_data_fields.csv'
             ),
         ),
         html.P(

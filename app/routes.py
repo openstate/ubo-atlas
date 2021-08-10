@@ -182,6 +182,7 @@ def update_choropleth(current_result):
     if current_result == 'start':
         return {
             'layout': go.Layout(
+                dragmode=False,
                 margin=go.layout.Margin(l=0, r=0, t=0, b=0),
                 font={'family': "'Mulish', sans-serif"},
                 annotations=[
@@ -403,7 +404,10 @@ def display_page(pathname):
                         # Choropleth
                         dcc.Graph(
                             id='choropleth',
-                            config={'displayModeBar': False},
+                            config={
+                                'modeBarButtonsToRemove': ["select2d", "lasso2d", "pan2d", "zoom2d", "autoScale2d", "resetScale2d"],
+                                'scrollZoom': False
+                            },
                             className="col-12 col-md-8 bg-orange"
                         )
                     ],

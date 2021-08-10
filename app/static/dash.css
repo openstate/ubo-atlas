@@ -5,6 +5,10 @@ body {
   background-color: #F0F5F9 !important;
 }
 
+.cursor-crosshair {
+  cursor: auto !important;
+}
+
 .navbar-brand {
   font-weight: 800;
   color: #F1F1F1 !important;

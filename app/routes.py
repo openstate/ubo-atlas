@@ -102,7 +102,6 @@ ubo_data = []
 with open('app/static/ubo_atlas_data.csv') as IN:
     ubo_data = [dict(x) for x in list(csv.DictReader(IN))]
 
-
 # Load the data containing the tooltips for results
 ubo_data_tooltips = []
 with open('app/static/ubo_atlas_data_tooltips.csv') as IN:
@@ -179,6 +178,41 @@ with open('data/custom.geo-50m-europe41.json') as IN:
 
 # Update the choropleth map
 def update_choropleth(current_result):
+    # Show this text when the pages is loaded
+    if current_result == 'start':
+        return {
+            'layout': go.Layout(
+                margin=go.layout.Margin(l=0, r=0, t=0, b=0),
+                font={'family': "'Mulish', sans-serif"},
+                annotations=[
+                    {
+                        'align': 'left',
+                        'font': dict(
+                            size=19,
+                            color='#002346'
+                        ),
+                        'text': (
+                            'An Ultimate Beneficial Owner refers<br>'
+                            'to the person or persons who ultimately<br>'
+                            'own or control a legal entity or arrangement,<br>'
+                            'such as a company, a trust, or a foundation.<br>'
+                            'In the EU countries are required to set up<br>'
+                            'UBO-registers. These registers help to prevent<br>'
+                            'financial and economic crimes such as money<br>'
+                            'laundering, tax fraud and corruption. The <br>'
+                            'register makes it clear who are pulling the<br>'
+                            'strings. This way, people cannot hide any<br>'
+                            'potential financial crimes behind a corporation.<br>'
+                            'This website details how these UBO registers<br>'
+                            'are set-up around the EU.<br><br>'
+                            '<b>Click on one of the categories to see the<br>'
+                            'results on the map.</b>'
+                        )
+                    }
+                ]
+            )
+        }
+
     # Results value for each country, e.g. [1, 1, 4, 3, ...]
     results = [ubo_info[current_result]['status'][x[ubo_info[current_result]['title']]] for x in ubo_data]
     return {
@@ -381,7 +415,9 @@ def display_page(pathname):
 
 
 # Callback that changes the choropleth and category menu based on a
-# click on an item in the category menu
+# click on an item in the category menu; the first return value goes to the
+# choropleth element, the remaining return values go to the collape elements
+# and state if they should be opened or not using True/False values
 @dash_app.callback(
     [Output('choropleth', 'figure')] + [Output(f"collapse-{i}", "is_open") for i in range(0, len(ubo_info))],
     [Input(f"group-{i}-toggle", "n_clicks") for i in range(0, len(ubo_info))],
@@ -392,7 +428,7 @@ def update_home_page(*args):
     # Output for the default state when the page is first rendered, i.e.
     # open the first category and show its corresponding map
     if not ctx.triggered:
-        return (update_choropleth(0), True,) + (False,) * (len(ubo_info) - 1)
+        return (update_choropleth('start'),) + (False,) * (len(ubo_info))
     else:
         button_id = ctx.triggered[0]["prop_id"].split(".")[0]
 

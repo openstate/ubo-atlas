@@ -181,7 +181,37 @@ def update_choropleth(current_result):
     # Show this text when the pages is loaded
     if current_result == 'start':
         return {
+            'data': [
+                go.Choropleth(
+                    # This specifies that we provide our own geojson
+                    locationmode='geojson-id',
+                    # Provide our own custom geojson
+                    geojson=countries,
+                    # Specify the key in the geojson containing the country
+                    # ISO 3166-1 alpha-3 code
+                    featureidkey='properties.iso_a3',
+                    # ISO 3166-1 alpha-3 code of the countries we want to show,
+                    # e.g., ['AUT', 'BEL', 'BGR', ...]
+                    showscale=False,
+                )
+            ],
             'layout': go.Layout(
+                geo={
+                    'scope': 'europe',
+                    'domain': {
+                        'x': [0, 1],
+                        'y': [0, 1]
+                    },
+                    'lataxis': {'range': [38, 70]},
+                    'lonaxis': {'range': [-24, 34]},
+                    'showcoastlines': False,
+                    'resolution': 50,
+                    'showframe': False,
+                    'projection': {'type': 'mercator'},
+                    'showland': False,
+                    'showocean': True,
+                    'oceancolor': '#FFF0E6',
+                },
                 dragmode=False,
                 margin=go.layout.Margin(l=0, r=0, t=0, b=0),
                 font={'family': "'Mulish', sans-serif"},

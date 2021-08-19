@@ -312,7 +312,7 @@ dash_app.layout = html.Div(
             children=[
                 dbc.NavItem(dbc.NavLink("About", href="/about")),
             ],
-            brand="UBO Atlas",
+            brand=" ",
             brand_href="/",
             color="#204C72",
             dark=True,

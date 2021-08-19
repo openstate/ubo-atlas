@@ -14,16 +14,31 @@ body {
   color: #F1F1F1 !important;
   white-space: normal !important;
   font-size: 24px !important;
+  width: -webkit-calc(100% - 7px);
+  width:    -moz-calc(100% - 70px);
+  width:         calc(100% - 70px);
+}
+
+.navbar-brand:before {
+  content: url('/static/UBO_Atlas.svg');
+  vertical-align: middle;
 }
 
 .navbar-brand:after {
-  content: ' - an overview of Ultimate Beneficial Ownership registers across the EU';
+  content: 'an overview of Ultimate Beneficial Ownership registers across the EU';
   font-size: 20px;
+  vertical-align: 67%;
 }
 
 .nav-link {
   color: #F1F1F1 !important;
   font-size: 20px !important;
+}
+
+.navbar-toggler {
+  position: absolute;
+  right: 20px !important;
+  top: 24px !important;
 }
 
 h1 {
@@ -107,8 +122,9 @@ h1 {
   }
 
   .navbar-brand:after {
-    content: ' - an overview of Ultimate Beneficial Ownership registers across the EU';
+    content: 'an overview of Ultimate Beneficial Ownership registers across the EU';
     font-size: 12px;
+    vertical-align: 115%;
   }
 
   .footer {

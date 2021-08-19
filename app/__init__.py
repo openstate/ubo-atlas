@@ -24,6 +24,9 @@ dash_app.index_string = '''
         {%css%}
         <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@500&display=swap" rel="stylesheet">
 
+        <meta property="og:url" content="https://uboatlas.eu/">
+        <meta property="og:image" content="/static/UBO_Atlas_og.png">
+
         <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">

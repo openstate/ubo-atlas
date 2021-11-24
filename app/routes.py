@@ -364,7 +364,7 @@ about_layout = html.Div(
             [
                 'Three years after the adoption of AMLD 5 and a year after the deadline for member states to install and open up the beneficial ownership registers, the UBO Atlas showcases the current state of play in the European Union. It showcases the specifics regarding the implementation and accessibility of beneficial ownership registers in EU member states. The UBO Atlas builds upon ',
                 html.A(
-                    'research executed by TaxJustice Europe and Transparency International',
+                    'research executed by Transparency International',
                     href='https://www.transparency.org/en/publications/access-denied-availability-accessibility-beneficial-ownership-registers-data-european-union',
                     target='_blank',
                     rel="noopener"
